@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Demo 08</h1>
+
+    <input type="text" class="a" />
+    <input type="text" class="b" />
+    <button type="button" class="cong">Cộng</button>
+    <button type="button" class="tru">Trừ</button>
+    <button type="button" class="nhan">Nhân</button>
+    <button type="button" class="chia">Chia</button>
+    <div></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".cong").click(function () {
+          var valueA = $(".a").val();
+          var valueB = $(".b").val();
+          var result = parseInt(valueA) + parseInt(valueB);
+          $("div").text(result);
+        });
+
+        $(".tru").click(function () {
+          var valueA = $(".a").val();
+          var valueB = $(".b").val();
+          var result = parseInt(valueA) - parseInt(valueB);
+          $("div").text(result);
+        });
+
+        $(".nhan").click(function () {
+          var valueA = $(".a").val();
+          var valueB = $(".b").val();
+          var result = parseInt(valueA) * parseInt(valueB);
+          $("div").text(result);
+        });
+
+        $(".chia").click(function () {
+          var valueA = $(".a").val();
+          var valueB = $(".b").val();
+          if (valueB == 0) {
+            $("div").text("Không thể chia 0");
+          } else {
+            var result = parseInt(valueA) / parseInt(valueB);
+            $("div").text(result);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

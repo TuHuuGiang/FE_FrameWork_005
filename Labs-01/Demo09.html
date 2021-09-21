@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     div {
+         width: 400px;
+         height: 300px;
+         border: 1px solid #cc3366;
+         text-align: center;
+         line-height: 300px;
+     }
+
+     .fillBgr {
+         background: #ccc;
+     }
+    </style>
+</head>
+<body>
+    <h1>Demo Event</h1>
+    <div>This is value</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("div").bind("mouseover", function() {
+                $("div").toggleClass("fillBgr");
+            });
+
+            $("div").bind("mouseout", function() {
+                $("div").toggleClass("fillBgr");
+            });
+
+            $("div").click(function () {
+                $("div").unbind("mouseover");
+                $("div").unbind("mouseout");
+            })
+        });
+    </script>
+</body>
+</html>

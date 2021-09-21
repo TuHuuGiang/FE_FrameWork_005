@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Demo Event</h1>
+
+    <label for="">Input value</label>
+    <input type="text">
+    <button type="button" onclick="calculate()">Calculate</button>
+    <div></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("button").click(function() {
+                var value = $("input").val();
+                $("div").text(value * 2);
+            });
+        });
+    </script>
+</body>
+</html>
