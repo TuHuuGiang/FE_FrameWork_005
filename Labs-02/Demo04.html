@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Converts currency</h1>
+    <div>
+      Form:
+      <select id="from">
+      </select>
+      To:
+      <select id="to">
+      </select>
+
+      <button type="button">Convert</button>
+      <span></span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        let key = "322248e9f5-93ac18e187-qzw1bm";
+
+        $.ajax({
+          url: `https://api.fastforex.io/currencies?api_key=${key}`,
+          method: "GET",
+          dataType: "json",
+        }).done(function (data) {
+            // Object.entries() chuyển thành mảng 1 chiều
+          for (const [key, value] of Object.entries(data.currencies)) {
+            $("#from").append(`<option value='${key}''>${value}</option>`);
+            $("#to").append(`<option value='${key}''>${value}</option>`);
+          }
+        });
+
+        $("button").click(function () {
+          let from = $("#from").val();
+          let to = $("#to").val();
+
+          $.ajax({
+            url: `https://api.fastforex.io/fetch-one?from=${from}&to=${to}&api_key=${key}`,
+            method: "GET",
+            dataType: "json",
+          }).done(function (data) {
+            $("span").text(data.result[to]);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
