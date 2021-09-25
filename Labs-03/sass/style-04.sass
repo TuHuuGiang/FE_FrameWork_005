@@ -1,0 +1,37 @@
+﻿@use 'dark' as theme
+
+//mixins - funcsion
+@mixin box($top-bottom: 5px, $left-right: 10px)
+    padding: $top-bottom $left-right
+    margin: 1px 0 0 0
+    box-shadow: $top-bottom $left-right 10px rgba(theme.$color-white, 0.25)
+
+body 
+    background-color: theme.$body-color
+    color: theme.$front-color
+
+h1 
+    color: theme.$color-red
+
+div
+    background-color: theme.$color-blue
+    margin: 5px
+
+nav
+    color: theme.$color-red
+    background-color: theme.$body-color
+
+    ul
+        list-style: none
+
+        li 
+            background-color: theme.$color-blue
+            @include box(5px, 10px)
+
+    a
+        text-decoration: none
+        color: theme.$color-white
+        background-color: theme.$color-red
+        display: block
+        width: 100%
+        @include box(5px, 10px)
